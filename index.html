@@ -9,6 +9,7 @@
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/vuex/3.0.1/vuex.js'></script>
+    <script src="https://unpkg.com/http-vue-loader"></script>
 </head>
 
 <body>
@@ -21,6 +22,7 @@
             <router-link to="/bar">Go to Bar</router-link>
         </p>
         <router-view></router-view>
+        <my-test></my-test>
     </div>
     <script>
         const store = new Vuex.Store({
@@ -61,7 +63,10 @@
         const app = new Vue({
             el: '#app',
             store,
-            router
+            router,
+            components: {
+                'my-test': httpVueLoader('mytest.vue')
+            }
         })
     </script>
 
